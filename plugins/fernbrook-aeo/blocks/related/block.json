@@ -1,0 +1,18 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "fernbrook/related",
+	"title": "Related pages",
+	"category": "widgets",
+	"icon": "admin-links",
+	"description": "Links to the pages this one belongs with, chosen from the entity graph. Internal links a machine can follow, not a random list.",
+	"keywords": [ "links", "related", "internal" ],
+	"textdomain": "fernbrook-aeo",
+	"attributes": {
+		"heading": { "type": "string", "default": "Read next" }
+	},
+	"supports": { "html": false, "multiple": true, "reusable": false },
+	"editorScript": "file:./editor.js",
+	"style": "file:./style.css",
+	"render": "file:./render.php"
+}

@@ -1,0 +1,117 @@
+{
+  "date": "2026-09-20",
+  "demo": "fernbrook",
+  "results": [
+    {
+      "name": "1. Markup lint",
+      "ok": true,
+      "details": "clean"
+    },
+    {
+      "name": "2. Pages load",
+      "ok": true,
+      "details": "12 pages"
+    },
+    {
+      "name": "3. Link crawl",
+      "ok": true,
+      "details": "61 URLs checked"
+    },
+    {
+      "name": "4. Editor: no invalid blocks",
+      "ok": true,
+      "details": "16 posts/pages, 22 patterns, all templates"
+    },
+    {
+      "name": "5. Editor font sizes = live site",
+      "ok": true,
+      "details": "25 text elements compared"
+    },
+    {
+      "name": "6. Accessibility (axe, WCAG 2.2 AA)",
+      "ok": true,
+      "details": "12 pages × 2 widths, 0 violations"
+    },
+    {
+      "name": "7. Keyboard",
+      "ok": true,
+      "details": "skip link, focus outline, FAQ, mobile menu"
+    },
+    {
+      "name": "8. Forms",
+      "ok": true,
+      "details": "6 forms: every field labelled (CF7: errors shown)"
+    },
+    {
+      "name": "9. Layout 320–1440px",
+      "ok": true,
+      "details": "no overflow, header fits"
+    },
+    {
+      "name": "10. Lighthouse (mobile)",
+      "ok": true,
+      "details": "/ 97/100/100/100  /puppy-foundations/ 98/100/100/100  /adolescent-manners/ 98/100/100/100  /private-training/ 98/100/100/100  /classes/ 99/100/100/100  /about/ 99/100/100/100"
+    },
+    {
+      "name": "11. Screenshots",
+      "ok": true,
+      "details": "33 saved to proof/screenshots"
+    }
+  ],
+  "lighthouse": [
+    {
+      "page": "/",
+      "performance": 97,
+      "accessibility": 100,
+      "best-practices": 100,
+      "seo": 100,
+      "lcp": "2.4 s",
+      "cls": "0"
+    },
+    {
+      "page": "/puppy-foundations/",
+      "performance": 98,
+      "accessibility": 100,
+      "best-practices": 100,
+      "seo": 100,
+      "lcp": "2.3 s",
+      "cls": "0"
+    },
+    {
+      "page": "/adolescent-manners/",
+      "performance": 98,
+      "accessibility": 100,
+      "best-practices": 100,
+      "seo": 100,
+      "lcp": "2.3 s",
+      "cls": "0"
+    },
+    {
+      "page": "/private-training/",
+      "performance": 98,
+      "accessibility": 100,
+      "best-practices": 100,
+      "seo": 100,
+      "lcp": "2.1 s",
+      "cls": "0"
+    },
+    {
+      "page": "/classes/",
+      "performance": 99,
+      "accessibility": 100,
+      "best-practices": 100,
+      "seo": 100,
+      "lcp": "2.0 s",
+      "cls": "0"
+    },
+    {
+      "page": "/about/",
+      "performance": 99,
+      "accessibility": 100,
+      "best-practices": 100,
+      "seo": 100,
+      "lcp": "1.9 s",
+      "cls": "0"
+    }
+  ]
+}

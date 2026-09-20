@@ -1,0 +1,199 @@
+/*
+Theme Name: Fernbrook Dog Academy
+Theme URI: https://github.com/hugooblak/fernbrook-demo
+Author: Hugo Oblak
+Block theme for Fernbrook Dog Academy, a fictional puppy and dog training school. Semantic markup, one H1 per page, answer-first sections, and no front-end JavaScript outside the enquiry form. Structured data is handled by the Fernbrook AI Search plugin, not the theme. No page builder.
+Requires at least: 6.6
+Tested up to: 6.6
+Requires PHP: 7.4
+Version: 1.0.0
+License: GNU General Public License v2 or later
+License URI: https://www.gnu.org/licenses/gpl-2.0.html
+Text Domain: fernbrook
+*/
+
+/* Only rules that theme.json can't express live here. */
+
+/* Keyboard focus: always visible, 3px, high contrast. */
+:where(a, button, input, select, textarea, summary, [tabindex]):focus-visible {
+	outline: 3px solid var(--wp--preset--color--bay);
+	outline-offset: 2px;
+	border-radius: 4px;
+}
+.is-style-section-dark :where(a, button, summary):focus-visible,
+.fb-mobile-cta :where(a):focus-visible { outline-color: var(--wp--preset--color--sun); }
+
+.skip-link.screen-reader-text:focus { background: var(--wp--preset--color--ink); color: #fff; }
+
+html { scroll-behavior: smooth; scroll-padding-top: 96px; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+
+/* Sticky header on wide screens keeps the booking button in reach. */
+@media (min-width: 782px) {
+	.wp-site-blocks > header.wp-block-template-part { position: sticky; top: 0; z-index: 50; }
+	.admin-bar .wp-site-blocks > header.wp-block-template-part { top: 32px; }
+}
+.fb-header { box-shadow: 0 1px 0 var(--wp--preset--color--line); }
+
+/* Logo mark drawn with CSS so no image request is needed. */
+.fb-brand .wp-block-site-title a { display: inline-flex; align-items: center; gap: .55rem; }
+.fb-brand .wp-block-site-title a::before {
+	content: ""; width: 30px; height: 30px; flex: none; border-radius: 8px;
+	background: var(--wp--preset--color--bay) url("assets/img/mark.svg") center / 20px no-repeat;
+}
+
+/* Header phone: big tap target, number never wraps. */
+.fb-phone a { text-decoration: none; font-weight: 700; white-space: nowrap; color: var(--wp--preset--color--ink); }
+.fb-phone small { display: block; font-weight: 500; color: var(--wp--preset--color--ink-soft); font-size: .8125rem; }
+
+/* The brand name is two words long. It gets one line, always. */
+.fb-header .wp-block-site-title { white-space: nowrap; }
+
+/* One header row at every width. The parts drop out in the order they are least missed:
+   the phone number first (the sticky bar and the footer still carry it), then the button
+   (the sticky bar carries that too). */
+@media (max-width: 1279px) { .fb-header .fb-phone { display: none; } }
+@media (max-width: 1079px) { .fb-header .fb-header-btn { display: none; } }
+@media (min-width: 900px) {
+	.fb-header .wp-block-navigation { font-size: .875rem; }
+	.fb-header .wp-block-navigation .wp-block-navigation__container { gap: 1rem !important; }
+	.fb-header .alignwide > .wp-block-group { gap: 1rem !important; }
+}
+
+/* Small label above headings. */
+.is-style-eyebrow {
+	text-transform: uppercase; letter-spacing: .08em; font-size: .8125rem !important; font-weight: 700;
+	color: var(--wp--preset--color--bay);
+}
+.is-style-section-dark .is-style-eyebrow { color: var(--wp--preset--color--sun); }
+
+/* Tick list. */
+ul.is-style-checklist { list-style: none; padding-left: 0; }
+ul.is-style-checklist li { position: relative; padding-left: 1.9rem; margin-bottom: .45rem; }
+ul.is-style-checklist li::before {
+	content: ""; position: absolute; left: 0; top: .22em; width: 1.25rem; height: 1.25rem; border-radius: 50%;
+	background: var(--wp--preset--color--bay-light) url("assets/img/tick.svg") center / 12px no-repeat;
+}
+.is-style-section-dark ul.is-style-checklist li::before { background-color: rgba(255,255,255,.14); background-image: url("assets/img/tick-light.svg"); }
+
+/* Trust strip items. */
+.fb-trust p { margin: 0; font-weight: 600; font-size: var(--wp--preset--font-size--small); }
+
+/* Step numbers. */
+.fb-step-num {
+	display: inline-grid; place-items: center; width: 2.5rem; height: 2.5rem; border-radius: 50%;
+	background: var(--wp--preset--color--bay); color: #fff !important; font-weight: 800; margin: 0;
+}
+
+/* Price guide table. */
+.fb-price-table table { border-collapse: collapse; width: 100%; }
+.fb-price-table th, .fb-price-table td { border: 0; border-bottom: 1px solid var(--wp--preset--color--line); padding: .85rem .6rem; text-align: left; }
+.fb-price-table thead th { font-size: var(--wp--preset--font-size--small); color: var(--wp--preset--color--ink-soft); border-bottom-width: 2px; }
+.fb-price-table td:last-child { font-weight: 700; white-space: nowrap; }
+.fb-price-table figcaption { font-size: var(--wp--preset--font-size--small); color: var(--wp--preset--color--ink-soft); text-align: left; }
+
+/* FAQ (core Details block). */
+.wp-block-details summary { cursor: pointer; font-weight: 700; list-style: none; position: relative; padding-right: 2rem; }
+.wp-block-details summary::-webkit-details-marker { display: none; }
+.wp-block-details summary::after {
+	content: "+"; position: absolute; right: .25rem; top: -.1rem; font-size: 1.5rem; line-height: 1; font-weight: 400;
+	color: var(--wp--preset--color--bay);
+}
+.wp-block-details[open] summary::after { content: "−"; }
+.wp-block-details > :not(summary) { margin-top: .6rem; color: var(--wp--preset--color--ink-soft); }
+
+/* Cards lift a little on hover when they contain a link. */
+.is-style-card:has(a) { transition: box-shadow .15s ease; }
+.is-style-card:has(a):hover { box-shadow: var(--wp--preset--shadow--card); }
+
+/* Sticky call bar: phones and tablets. It carries the phone number and the booking button
+   for every width where the header has dropped them. */
+.wp-block-buttons.fb-mobile-cta { display: none; }
+@media (max-width: 1079px) {
+	.wp-block-buttons.fb-mobile-cta {
+		display: flex; position: fixed; left: 0; right: 0; bottom: 0; z-index: 60;
+		padding: .6rem .75rem calc(.6rem + env(safe-area-inset-bottom));
+		background: var(--wp--preset--color--ink); gap: .6rem;
+		box-shadow: 0 -6px 24px rgba(22,32,43,.2);
+	}
+	.fb-mobile-cta .wp-block-button { flex: 1; }
+	.fb-mobile-cta .wp-block-button__link { width: 100%; padding: .8rem .5rem; font-size: 1rem; }
+	.fb-mobile-cta .is-style-outline .wp-block-button__link { color: #fff; border-color: rgba(255,255,255,.5); }
+	body:has(.fb-mobile-cta) { padding-bottom: 76px; }
+}
+
+/* Footer links: no underline until hover. */
+.fb-footer a { text-decoration: none; }
+.fb-footer a:hover { text-decoration: underline; }
+.fb-footer ul { list-style: none; padding-left: 0; }
+.fb-footer li { margin-bottom: .4rem; }
+
+/* Long words and numbers never force sideways scroll. */
+h1, h2, h3, p, li { overflow-wrap: break-word; }
+
+/* Tables fit the screen instead of scrolling sideways. A region that scrolls has to be
+   reachable with a keyboard to pass WCAG, and a table you can read without scrolling is
+   better than one you can. */
+@media (max-width: 782px) {
+	.wp-block-table table { table-layout: fixed; width: 100%; }
+	.wp-block-table th, .wp-block-table td { overflow-wrap: anywhere; hyphens: auto; }
+}
+@media (max-width: 782px) {
+	.fb-price-table td:last-child { white-space: normal; }
+}
+@media (max-width: 600px) {
+	.wp-block-table th, .wp-block-table td { font-size: .875rem; padding: .6rem .35rem; }
+}
+
+.fb-lift { box-shadow: var(--wp--preset--shadow--lift); }
+.fb-sample { color: var(--wp--preset--color--ink-soft); font-weight: 400; }
+.is-style-section-dark .fb-sample { color: #C9D3DB; }
+.fb-header .wp-block-button__link { white-space: nowrap; }
+
+/* Sections sit flush: no gap between the main content and the footer. */
+.wp-site-blocks > * + * { margin-block-start: 0; }
+
+/* Phones: logo on one line, and get the hero form closer to the top of the screen. */
+@media (max-width: 600px) {
+	.fb-header .wp-block-site-title { font-size: 1.0625rem !important; white-space: nowrap; }
+	.fb-brand .wp-block-site-title a::before { width: 26px; height: 26px; background-size: 17px; }
+	.fb-hide-mobile { display: none !important; }
+	.fb-price-table th, .fb-price-table td { padding: .7rem .35rem; font-size: .9375rem; hyphens: auto; }
+}
+
+@media (max-width: 600px) {
+	.fb-header .wp-block-group { gap: .6rem !important; }
+	.fb-focus-phone a { white-space: nowrap; }
+}
+/* Enquiry pages: sand all the way down, even when the page is short. */
+body.page-template-page-focus { background: var(--wp--preset--color--sand); }
+
+/* Articles and simple pages: calmer heading sizes than landing page sections. */
+.fb-prose h2 { font-size: var(--wp--preset--font-size--x-large); margin-top: var(--wp--preset--spacing--50); }
+.fb-prose h3 { margin-top: var(--wp--preset--spacing--40); }
+
+/* Reserve the illustration's space before it loads (no layout shift). */
+.fb-hero-art img { aspect-ratio: 560 / 400; width: 100%; height: auto; border-radius: 22px; }
+
+
+
+/* The enquiry form script adds this class while a form is on screen (see Fernbrook Dog Academy Leads). */
+@media (max-width: 1079px) {
+	.wp-block-buttons.fb-mobile-cta { transition: transform .2s ease; }
+	.fbl-form-in-view .wp-block-buttons.fb-mobile-cta { transform: translateY(110%); visibility: hidden; transition: transform .2s ease, visibility 0s .2s; }
+}
+@media (prefers-reduced-motion: reduce) { .wp-block-buttons.fb-mobile-cta { transition: none; } }
+
+/* Tablets: seven menu items and a long brand name do not fit on one line between 600 and
+   860px, and a header that wraps onto two rows pushes everything below the fold. WordPress
+   collapses the menu into the button below 600px on its own; these rules keep it collapsed a
+   little longer. */
+@media (min-width: 600px) and (max-width: 899px) {
+	.fb-header .wp-block-navigation__responsive-container-open:not(.always-shown) { display: flex; }
+	.fb-header .wp-block-navigation__responsive-container:not(.hidden-by-default):not(.is-menu-open) { display: none; }
+}
+
+/* Tablets: a slightly smaller brand name buys the menu the room it needs. */
+@media (min-width: 900px) and (max-width: 1079px) {
+	.fb-header .wp-block-site-title { font-size: 1.0625rem !important; }
+}

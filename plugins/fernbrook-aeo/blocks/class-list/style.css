@@ -1,0 +1,15 @@
+.fbaeo-classes { display: grid; gap: var(--wp--preset--spacing--30, 1rem); margin-top: var(--wp--preset--spacing--50, 2rem); }
+.fbaeo-class {
+	display: flex; flex-wrap: wrap; gap: .5rem 1.5rem; align-items: baseline;
+	border: 1px solid var(--wp--preset--color--line, #E6E0D4); border-radius: 14px;
+	padding: 1rem 1.25rem; background: var(--wp--preset--color--base, #fff);
+}
+.fbaeo-class p { margin: 0; }
+.fbaeo-class-date { font-weight: 800; min-width: 7.5rem; }
+.fbaeo-class-name { font-weight: 700; flex: 1 1 14rem; }
+.fbaeo-class-name a { text-decoration: none; }
+.fbaeo-class-name a:hover { text-decoration: underline; }
+.fbaeo-class-meta { color: var(--wp--preset--color--ink-soft, #4A5763); font-size: .9375rem; }
+.fbaeo-class-full { color: var(--wp--preset--color--accent-dark, #7A380F); font-weight: 700; }
+.fbaeo-classes-none { color: var(--wp--preset--color--ink-soft, #4A5763); }
+@media (max-width: 600px) { .fbaeo-class { flex-direction: column; gap: .3rem; } .fbaeo-class-date { min-width: 0; } }

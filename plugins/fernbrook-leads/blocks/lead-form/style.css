@@ -1,0 +1,84 @@
+/* Quote form. Colours and fonts come from the theme's settings, so it matches any theme. */
+.fbl-form { --fbl-accent: var(--wp--preset--color--accent, #C2410C); --fbl-ink: var(--wp--preset--color--ink, #0F2233); --fbl-soft: var(--wp--preset--color--ink-soft, #44525F); --fbl-line: #B9B3A6; --fbl-bay: var(--wp--preset--color--bay, #1D5A46); --fbl-bay-light: var(--wp--preset--color--bay-light, #E4EFEA); color: var(--fbl-ink); }
+.fbl-form fieldset { border: 0; margin: 0; padding: 0; min-width: 0; }
+.fbl-form fieldset:focus { outline: none; }
+.fbl-form [hidden] { display: none !important; }
+
+.fbl-legend { font-size: var(--wp--preset--font-size--large, 1.25rem); font-weight: 800; letter-spacing: -0.01em; line-height: 1.3; margin: 0 0 .9rem; padding: 0; }
+.fbl-label { display: block; font-weight: 700; font-size: .9375rem; margin: 0 0 .35rem; }
+.fbl-hint { margin: -.15rem 0 .4rem; font-size: .875rem; color: var(--fbl-soft); }
+.fbl-field + .fbl-field { margin-top: 1rem; }
+
+.fbl-input {
+	display: block; width: 100%; box-sizing: border-box; font: inherit; font-size: 1.0625rem; /* 17px stops iOS zooming in */
+	padding: .8rem .9rem; border: 2px solid var(--fbl-line); border-radius: 10px; background: #fff; color: var(--fbl-ink);
+	min-height: 52px;
+}
+.fbl-input:focus { border-color: var(--fbl-bay); outline: 3px solid color-mix(in srgb, var(--fbl-bay) 30%, transparent); outline-offset: 0; }
+.fbl-input[aria-invalid="true"] { border-color: #B42318; }
+.fbl-input-short { max-width: 12rem; }
+
+.fbl-error { color: #B42318; font-size: .9375rem; font-weight: 600; margin: .4rem 0 0; }
+.fbl-error::before { content: "! "; font-weight: 800; }
+
+.fbl-inline { display: flex; gap: .5rem; flex-wrap: wrap; }
+.fbl-inline .fbl-input { flex: 1 1 9rem; width: auto; }
+.fbl-inline .fbl-btn { flex: 1 1 auto; }
+
+.fbl-btn {
+	font: inherit; font-weight: 700; font-size: 1.0625rem; line-height: 1.2; cursor: pointer; border: 0; border-radius: 10px;
+	background: var(--fbl-accent); color: #fff; padding: .95rem 1.4rem; min-height: 52px;
+}
+.fbl-btn:hover, .fbl-btn:focus-visible { background: var(--wp--preset--color--accent-dark, #9A3412); }
+.fbl-btn:disabled { opacity: .7; cursor: progress; }
+
+.fbl-back { font: inherit; font-weight: 600; background: none; border: 0; color: var(--fbl-ink); padding: .8rem .4rem; cursor: pointer; text-decoration: underline; min-height: 44px; }
+
+.fbl-choices { display: grid; gap: .6rem; }
+@media (min-width: 560px) { .fbl-choices { grid-template-columns: 1fr 1fr; } }
+.fbl-choice { position: relative; display: flex; align-items: center; gap: .7rem; padding: .9rem 1rem; border: 2px solid var(--fbl-line); border-radius: 12px; cursor: pointer; font-weight: 600; background: #fff; min-height: 56px; box-sizing: border-box; }
+.fbl-choice:hover { border-color: var(--fbl-bay); }
+.fbl-choice input { width: 1.25rem; height: 1.25rem; margin: 0; accent-color: var(--fbl-bay); flex: none; }
+.fbl-choice:has(input:checked) { border-color: var(--fbl-bay); background: var(--fbl-bay-light); }
+.fbl-choice:has(input:focus-visible) { outline: 3px solid var(--fbl-bay); outline-offset: 2px; }
+fieldset[aria-invalid="true"] .fbl-choice { border-color: #B42318; }
+
+.fbl-nav { display: flex; align-items: center; justify-content: space-between; gap: .75rem; margin-top: 1.25rem; }
+.fbl-nav .fbl-btn { margin-left: auto; }
+.fbl-steps:not(.is-stepped) .fbl-step + .fbl-step { margin-top: 1.75rem; }
+
+.fbl-progress { margin-bottom: 1rem; }
+.fbl-progress-text { margin: 0 0 .4rem; font-size: .875rem; font-weight: 700; color: var(--fbl-bay); }
+.fbl-bar { height: 6px; border-radius: 99px; background: var(--fbl-bay-light); overflow: hidden; }
+.fbl-bar span { display: block; height: 100%; width: 25%; background: var(--fbl-bay); border-radius: inherit; transition: width .25s ease; }
+@media (prefers-reduced-motion: reduce) { .fbl-bar span { transition: none; } }
+
+.fbl-fineprint { font-size: .8125rem; color: var(--fbl-soft); margin: .75rem 0 0; line-height: 1.45; }
+.fbl-summary { border: 2px solid #B42318; border-radius: 10px; padding: .75rem 1rem; margin-bottom: 1rem; background: #FEF3F2; }
+.fbl-summary p { margin: 0 0 .3rem; }
+.fbl-summary ul { margin: 0; padding-left: 1.2rem; }
+.fbl-summary a { color: #B42318; }
+
+/* Honeypot: off-screen, not display:none (some bots skip hidden fields). */
+.fbl-hp { position: absolute !important; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
+
+/* On dark sections. */
+.is-style-section-dark .fbl-form .is-style-card, .is-style-section-dark .is-style-card .fbl-form { color: var(--fbl-ink); }
+
+/* Before view.js runs (JS is on, see tracking.php): show the form exactly as it will look, so nothing jumps. */
+.fbl-js .fbl-steps:not(.is-stepped) .fbl-step,
+.fbl-js .fbl-steps:not(.is-stepped) [data-fbl-submit],
+.fbl-js .fbl-steps:not(.is-stepped) [data-fbl-consent] { display: none; }
+.fbl-js .fbl-steps[data-start="1"]:not(.is-stepped) .fbl-step[data-step="1"],
+.fbl-js .fbl-steps[data-start="2"]:not(.is-stepped) .fbl-step[data-step="2"],
+.fbl-js .fbl-steps[data-start="3"]:not(.is-stepped) .fbl-step[data-step="3"],
+.fbl-js .fbl-steps[data-start="4"]:not(.is-stepped) .fbl-step[data-step="4"] { display: block; }
+.fbl-js .fbl-steps[data-start="4"]:not(.is-stepped) [data-fbl-submit],
+.fbl-js .fbl-steps[data-start="4"]:not(.is-stepped) [data-fbl-consent] { display: block; }
+.fbl-js .fbl-form .fbl-steps:not(.is-stepped) [data-fbl-progress][hidden] { display: block !important; }
+.fbl-js .fbl-form .fbl-steps:not([data-start="4"]):not(.is-stepped) [data-fbl-next][hidden] { display: inline-block !important; }
+
+/* The "moves on by itself" hint only matters when the form is in steps. */
+.fbl-steps:not(.is-stepped) .fbl-auto-hint { display: none; }
+.fbl-js .fbl-steps .fbl-auto-hint { display: block; }
+.fbl-legend + .fbl-auto-hint { margin-top: -.5rem; margin-bottom: .75rem; }

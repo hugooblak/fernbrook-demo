@@ -1,0 +1,39 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "fernbrook/lead-form",
+	"title": "Enquiry form",
+	"category": "widgets",
+	"icon": "feedback",
+	"description": "Multi-step enquiry form. 'Start' shows only the ZIP question and hands over to the full form. 'Full' shows all four steps.",
+	"keywords": [
+		"enquiry",
+		"form",
+		"booking",
+		"contact"
+	],
+	"textdomain": "fernbrook-leads",
+	"attributes": {
+		"variant": {
+			"type": "string",
+			"enum": [
+				"start",
+				"full"
+			],
+			"default": "full"
+		},
+		"buttonText": {
+			"type": "string",
+			"default": ""
+		}
+	},
+	"supports": {
+		"html": false,
+		"multiple": true,
+		"reusable": false
+	},
+	"editorScript": "file:./editor.js",
+	"viewScript": "file:./view.js",
+	"style": "file:./style.css",
+	"render": "file:./render.php"
+}

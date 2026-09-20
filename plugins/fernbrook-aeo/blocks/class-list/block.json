@@ -1,0 +1,18 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "fernbrook/class-list",
+	"title": "Class dates",
+	"category": "widgets",
+	"icon": "calendar-alt",
+	"description": "The next class start dates, read from the Classes screen. The same records produce the Event structured data, so the page and the schema can never disagree.",
+	"keywords": [ "class", "dates", "events", "course" ],
+	"textdomain": "fernbrook-aeo",
+	"attributes": {
+		"limit": { "type": "number", "default": 4 }
+	},
+	"supports": { "html": false, "multiple": true, "reusable": false, "align": [ "wide" ] },
+	"editorScript": "file:./editor.js",
+	"style": "file:./style.css",
+	"render": "file:./render.php"
+}

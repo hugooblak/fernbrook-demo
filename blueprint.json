@@ -1,0 +1,41 @@
+{
+	"$schema": "https://playground.wordpress.net/blueprint-schema.json",
+	"meta": {
+		"title": "Fernbrook Dog Academy: WordPress set up for AI search (GEO/AEO)",
+		"description": "A block theme site for a fictional dog training school, with a custom plugin that publishes one connected JSON-LD entity graph per page using stable @id values, manages the AI-crawler policy and llms.txt, handles canonicals and redirects, and validates every page with twelve checks.",
+		"author": "hugooblak",
+		"categories": [ "Themes" ]
+	},
+	"landingPage": "/",
+	"preferredVersions": { "php": "8.3", "wp": "latest" },
+	"features": { "networking": true },
+	"login": true,
+	"steps": [
+		{
+			"step": "installTheme",
+			"themeData": { "resource": "git:directory", "url": "https://github.com/hugooblak/fernbrook-demo", "ref": "main", "refType": "branch", "path": "theme/fernbrook" },
+			"options": { "activate": true }
+		},
+		{
+			"step": "installPlugin",
+			"pluginData": { "resource": "git:directory", "url": "https://github.com/hugooblak/fernbrook-demo", "ref": "main", "refType": "branch", "path": "plugins/fernbrook-aeo" },
+			"options": { "activate": true }
+		},
+		{
+			"step": "installPlugin",
+			"pluginData": { "resource": "git:directory", "url": "https://github.com/hugooblak/fernbrook-demo", "ref": "main", "refType": "branch", "path": "plugins/fernbrook-leads" },
+			"options": { "activate": true }
+		},
+		{
+			"step": "installPlugin",
+			"pluginData": { "resource": "git:directory", "url": "https://github.com/hugooblak/fernbrook-demo", "ref": "main", "refType": "branch", "path": "plugins/fernbrook-demo-notes" },
+			"options": { "activate": true }
+		},
+		{ "step": "mkdir", "path": "/wordpress/wp-content/fernbrook-setup" },
+		{ "step": "writeFile", "path": "/wordpress/wp-content/fernbrook-setup/setup.php", "data": { "resource": "url", "url": "https://raw.githubusercontent.com/hugooblak/fernbrook-demo/main/content/setup.php" } },
+		{
+			"step": "runPHP",
+			"code": "<?php require '/wordpress/wp-load.php'; require '/wordpress/wp-content/fernbrook-setup/setup.php';"
+		}
+	]
+}

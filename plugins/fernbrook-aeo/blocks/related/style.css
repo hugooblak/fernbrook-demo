@@ -1,0 +1,5 @@
+.fbaeo-related { margin-top: var(--wp--preset--spacing--50, 2rem); }
+.fbaeo-related h2 { font-size: var(--wp--preset--font-size--large, 1.25rem); margin-bottom: .6rem; }
+.fbaeo-related ul { list-style: none; padding-left: 0; margin: 0; display: grid; gap: .4rem; }
+.fbaeo-related li { padding-left: 1.2rem; position: relative; }
+.fbaeo-related li::before { content: "→"; position: absolute; left: 0; color: var(--wp--preset--color--bay, #0F5D63); }

@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560 400" role="img" aria-labelledby="fbTrailTitle" width="560" height="400">
+<title id="fbTrailTitle">A handler walking a dog on a loose lead along a coastal trail</title>
+<defs><clipPath id="fbFrame"><rect width="560" height="400" rx="22"/></clipPath></defs>
+<g clip-path="url(#fbFrame)">
+  <rect width="560" height="400" fill="#E2EFF0"/>
+  <circle cx="462" cy="82" r="34" fill="#E3A13D" opacity=".6"/>
+
+  <path d="M0 214c52-30 92-44 136-30 42 13 70 34 118 30 44-4 74-30 120-30 44 0 72 22 118 24 26 1 48-4 68-12v100H0z" fill="#0F5D63" opacity=".16"/>
+  <path d="M0 248c58-24 96-32 142-20 44 12 74 24 118 20 42-4 76-22 120-20 42 2 76 18 118 22 22 2 42 0 62-6v56H0z" fill="#0F5D63" opacity=".26"/>
+
+  <path d="M0 286h560v114H0z" fill="#F7F4EC"/>
+  <path d="M150 400c14-52 44-86 84-104 26-12 40-22 44-24h30c-6 16-26 30-58 44-34 15-58 44-68 84z" fill="#E6E0D4"/>
+
+  <g fill="none" stroke="#16202B" stroke-width="7" stroke-linecap="round" stroke-linejoin="round">
+    <circle cx="272" cy="212" r="15"/>
+    <path d="M272 228v50"/>
+    <path d="M272 243l-22 18"/>
+    <path d="M272 243l26 16"/>
+    <path d="M272 278l-16 49M272 278l17 49"/>
+  </g>
+
+  <g fill="#16202B">
+    <rect x="352" y="284" width="62" height="30" rx="13"/>
+    <rect x="358" y="308" width="9" height="20" rx="4"/>
+    <rect x="374" y="308" width="9" height="20" rx="4"/>
+    <rect x="386" y="308" width="9" height="20" rx="4"/>
+    <rect x="402" y="308" width="9" height="20" rx="4"/>
+    <path d="M410 292c0-13 9-22 21-22h6v13c0 6-3 11-8 13l-19 8z"/>
+    <rect x="428" y="280" width="24" height="13" rx="6"/>
+    <path d="M427 270l4-18 14 14z"/>
+    <path d="M352 292c-12-2-20-12-22-26 9 10 17 16 24 16z"/>
+  </g>
+  <path d="M300 261c30 8 62 18 96 25" fill="none" stroke="#9C4A16" stroke-width="5" stroke-linecap="round"/>
+  <circle cx="437" cy="278" r="3.4" fill="#F7F4EC"/>
+  <rect x="404" y="286" width="7" height="26" rx="3" fill="#9C4A16"/>
+
+  <g stroke="#0F5D63" stroke-width="6" stroke-linecap="round">
+    <path d="M62 330v-26M86 330v-40M110 330v-18"/>
+  </g>
+  <circle cx="62" cy="298" r="12" fill="#0F5D63" opacity=".7"/>
+  <circle cx="86" cy="282" r="15" fill="#0F5D63" opacity=".7"/>
+  <circle cx="110" cy="304" r="10" fill="#0F5D63" opacity=".7"/>
+
+  <circle cx="504" cy="330" r="8" fill="#0F5D63" opacity=".28"/>
+  <circle cx="524" cy="342" r="5" fill="#0F5D63" opacity=".2"/>
+</g>
+</svg>
